@@ -1,9 +1,9 @@
 'use strict';
 
 var phonePrice = 100;
-var acctBalance = 250;
+var acctBalance = 280.5;
 var accessories = 25;
-var tax = 0.08;
+var tax = 0.09;
 var total = 0;
 var phonesPurchased = 0;
 var accessoriesPurchased = 0;
@@ -16,7 +16,7 @@ var addTax = function(total) {
 };
 
 var formatPrice = function(total) {
-  var formatted = "$" + total + ".00";
+  var formatted = "$" + total;
   return formatted
 };
 
@@ -31,10 +31,10 @@ var totalPrice = function(total, phonePrice, accessories, acctBalance){
     acctBalance -= addTax(accessories);
     accessoriesPurchased ++;
   };
-  console.log(phonesPurchased);
-  console.log(accessoriesPurchased);
-  console.log(acctBalance);
-  console.log(formatPrice(total));
+  console.log(phonesPurchased + " phones purchased");
+  console.log(accessoriesPurchased + " accessories purchased");
+  console.log("I have $" + acctBalance + " left in my account");
+  console.log("In total I spent " + formatPrice(total));
 };
 
 totalPrice(total, phonePrice, accessories, acctBalance);
