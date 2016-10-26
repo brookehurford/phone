@@ -16,8 +16,7 @@ var addTax = function(total) {
 };
 
 var formatPrice = function(total) {
-  var num = total.toFixed(2);
-  var formatted = "$" + num;
+  var formatted = "$" + total.toFixed(2);
   return formatted
 };
 
