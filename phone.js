@@ -1,9 +1,9 @@
 'use strict';
 
-var phonePrice = 100;
+var PHONE_PRICE = 100;
+var ACCESS_PRICE = 25;
+var TAX_RATE = 0.09;
 var acctBalance = 280.20;
-var accessories = 25;
-var tax = 0.09;
 var total = 0;
 var phonesPurchased = 0;
 var accessoriesPurchased = 0;
@@ -11,7 +11,7 @@ var accessoriesPurchased = 0;
 // buy phones until the total is more than the account balance, once you can't buy any more phones buy accessories.
 
 var addTax = function(total) {
-  var taxedTotal = total + total * tax;
+  var taxedTotal = total + total * TAX_RATE;
   return taxedTotal
 };
 
@@ -20,15 +20,15 @@ var formatPrice = function(total) {
   return formatted
 };
 
-var totalPrice = function(total, phonePrice, accessories, acctBalance){
-  while (addTax(phonePrice) <= acctBalance) {
-    total += addTax(phonePrice);
-    acctBalance -= addTax(phonePrice);
+var totalPrice = function(total, PHONE_PRICE, ACCESS_PRICE, acctBalance){
+  while (addTax(PHONE_PRICE) <= acctBalance) {
+    total += addTax(PHONE_PRICE);
+    acctBalance -= addTax(PHONE_PRICE);
     phonesPurchased ++;
   };
-  while (addTax(accessories) <= acctBalance) {
-    total += addTax(accessories);
-    acctBalance -= addTax(accessories);
+  while (addTax(ACCESS_PRICE) <= acctBalance) {
+    total += addTax(ACCESS_PRICE);
+    acctBalance -= addTax(ACCESS_PRICE);
     accessoriesPurchased ++;
   };
   console.log(phonesPurchased + " phones purchased");
@@ -37,4 +37,4 @@ var totalPrice = function(total, phonePrice, accessories, acctBalance){
   console.log("I have " + formatPrice(acctBalance) + " left in my account");
 };
 
-totalPrice(total, phonePrice, accessories, acctBalance);
+totalPrice(total, PHONE_PRICE, ACCESS_PRICE, acctBalance);
